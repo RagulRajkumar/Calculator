@@ -1,14 +1,23 @@
 let outputScreen = document.getElementById("output-screen");
+let isInvalidSyntax = true  ;
 
 function display(num){
-     outputScreen.value += num ;
+     
+     if (isInvalidSyntax === true){
+         outputScreen.value = num ;
+         isInvalidSyntax = false;
+     }
+      else {
+        outputScreen.value += num ;
+      }
 }
 function calculate(){
 try{
-outputScreen.value = eval(outputScreen.value)  ;
+outputScreen.value = eval(outputScreen.value) ;
 }
 catch(err){
-alert("Invalid syntax");
+    outputScreen.value = " invalid sytax";
+    isInvalidSyntax = true;
 }
 }
 function clears(){
